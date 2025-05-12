@@ -1,0 +1,6 @@
+Config Server
+Eureka Server
+Identity Service
+API Gateway
+Company Service
+Recruitment Service
