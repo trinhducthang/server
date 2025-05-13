@@ -37,8 +37,13 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     private final ObjectMapper objectMapper;
     private final PathMatcher pathMatcher;
 
-    @Value("${app.public.endpoints}")
-    private String[] public_endpoints;
+    @Value("${app.api-prefix}")
+    private String apiPrefix;
+
+    private String[] public_endpoints = {
+            apiPrefix + "/identity/auth/**",
+            "/eureka/**"
+    };
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

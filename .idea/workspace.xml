@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="second commit" />
+    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="second commit">
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/CloudinaryConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/request/CompanyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/response/CompanyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/AppException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/RestControllerExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/helper/AuthHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CloudinaryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,15 +73,22 @@
     "com.intellij.ide.FileNotInSourceRootChecker.no.check": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web/job-portal/server-old/identity-service/src/main/resources/application.properties",
+    "last_opened_file_path": "D:/Web/job-portal/server/company-service/src/main/java/com/kachina/company_service/jwt",
     "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service\jwt" />
+      <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service\exception" />
+      <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service\config" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kachina.company_service.dto.response" />
+      <recent name="com.kachina.company_service.service" />
       <recent name="com.kachina.identity_service.dto.response" />
     </key>
   </component>
