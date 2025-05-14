@@ -5,27 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="second commit">
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/CloudinaryConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/request/CompanyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/response/CompanyResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/AppException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/exception/RestControllerExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/helper/AuthHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/jwt/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CloudinaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/request/CreateByIdRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "huynq-fouj"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NQHuyGra/server.git",
+    "accountId": "ea8876d5-7732-479d-b0fc-e077c8a895fd"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -57,26 +57,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.api-gateway [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.4.5:run].executor": "Run",
-    "Maven.config-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.discovery-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.identity-service [org.apache.maven.plugins:maven-clean-plugin:3.3.2:clean].executor": "Run",
-    "Maven.identity-service [org.apache.maven.plugins:maven-install-plugin:3.1.3:install].executor": "Run",
-    "Maven.identity-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ide.FileNotInSourceRootChecker.no.check": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web/job-portal/server/company-service/src/main/java/com/kachina/company_service/jwt",
-    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.api-gateway [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.4.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.config-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.apache.maven.plugins:maven-clean-plugin:3.3.2:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.apache.maven.plugins:maven-install-plugin:3.1.3:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ide.FileNotInSourceRootChecker.no.check&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web/job-portal/server/company-service/src/main/java/com/kachina/company_service/jwt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service\jwt" />
@@ -117,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747060661955</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="second commit">
+      <option name="closed" value="true" />
+      <created>1747154439571</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747154439571</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +133,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

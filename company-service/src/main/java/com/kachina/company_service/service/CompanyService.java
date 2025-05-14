@@ -34,11 +34,11 @@ public class CompanyService {
         company.setAuthorId(authorId);
         if(request.getLogo_url() != null && !request.getLogo_url().equals("")) {
             String logo_url = cloudinaryService.uploadBase64Image(request.getLogo_url(), "company_logo_" + authorId);
-            company.setLogo_url(logo_url);
+            company.setLogoUrl(logo_url);
         }
         if(request.getCover_photo() != null && !request.getCover_photo().equals("")) {
             String cover_photo_url = cloudinaryService.uploadBase64Image(request.getCover_photo(), "company_cover_photo_" + authorId);
-            company.setCover_photo(cover_photo_url);
+            company.setCoverPhoto(cover_photo_url);
         }
 
         company = companyRepository.save(company);
@@ -54,8 +54,10 @@ public class CompanyService {
 
     public ResponseEntity<ApiResponse<CompanyResponse>> addCompanyById(String id) {
         String authorId = authHelper.getCurrentUserId();
-        Company c = companyRepository.findById(id).get();
-        Company company = companyRepository.save(companyMapper.toCompany(c, authorId));
+        System.out.println(id);
+        Optional<Company> cOpt = companyRepository.findById(id);
+        if(!cOpt.isPresent())  throw new NotFoundException("Không tìm thấy công ty!");
+        Company company = companyRepository.save(companyMapper.toCompany(cOpt.get(), authorId));
 
         ApiResponse<CompanyResponse> response = ApiResponse.<CompanyResponse>builder()
                 .message("Tạo công ty thành công!")
@@ -74,18 +76,18 @@ public class CompanyService {
         company.setEmail(request.getEmail());
         company.setFields(request.getFields());
         company.setDescription(CharacterReference.encode(request.getDescription()));
-        company.setBusiness_type(request.getBusiness_type());
+        company.setBusinessType(request.getBusiness_type());
         company.setSize(request.getSize());
         company.setWebsite(request.getWebsite());
         company.setPhone(request.getPhone());
-        company.setTax_code(request.getTax_code());
+        company.setTaxCode(request.getTax_code());
         if(request.getLogo_url() != null && !request.getLogo_url().equals("")) {
             String logo_url = cloudinaryService.uploadBase64Image(request.getLogo_url(), "company_logo_" + authorId);
-            company.setLogo_url(logo_url);
+            company.setLogoUrl(logo_url);
         }
         if(request.getCover_photo() != null && !request.getCover_photo().equals("")) {
             String cover_photo_url = cloudinaryService.uploadBase64Image(request.getCover_photo(), "company_cover_photo_" + authorId);
-            company.setCover_photo(cover_photo_url);
+            company.setCoverPhoto(cover_photo_url);
         }
 
         company = companyRepository.save(company);

@@ -1,6 +1,7 @@
 package com.kachina.company_service.controller;
 
 import com.kachina.company_service.dto.request.CompanyRequest;
+import com.kachina.company_service.dto.request.CreateByIdRequest;
 import com.kachina.company_service.dto.response.ApiResponse;
 import com.kachina.company_service.dto.response.CompanyResponse;
 import com.kachina.company_service.service.CompanyService;
@@ -15,13 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
 @RequiredArgsConstructor
 public class CompanyController {
 
     private final CompanyService companyService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<ApiResponse<CompanyResponse>> getCompany(@PathVariable("id") String companyId) {
         return companyService.getCompanyById(companyId);
     }
@@ -37,8 +37,8 @@ public class CompanyController {
     }
 
     @PostMapping("/create-by-id")
-    public ResponseEntity<ApiResponse<CompanyResponse>> createCompany(@RequestBody String id) {
-        return companyService.addCompanyById(id);
+    public ResponseEntity<ApiResponse<CompanyResponse>> createCompany(@RequestBody CreateByIdRequest request) {
+        return companyService.addCompanyById(request.getId());
     }
 
     @PutMapping("/update")
@@ -51,7 +51,7 @@ public class CompanyController {
         @RequestParam(name = "page", defaultValue = "0") int page,
         @RequestParam(name = "size", defaultValue = "6") int size,
         @RequestParam(name = "search") String search,
-        @RequestParam(name = "sortBy", defaultValue = "created_at") String sortBy,
+        @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy,
         @RequestParam(name = "direction", defaultValue = "desc") String direction
     ) {
 

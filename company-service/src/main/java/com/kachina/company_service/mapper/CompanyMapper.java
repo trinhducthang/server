@@ -8,6 +8,7 @@ import net.htmlparser.jericho.CharacterReference;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -16,17 +17,17 @@ public class CompanyMapper {
     public Company toCompany(CompanyRequest request) {
         return Company.builder()
                 .name(CharacterReference.encode(request.getName()))
-                .logo_url("")
+                .logoUrl("")
                 .email(request.getEmail())
                 .phone(request.getPhone())
                 .size(request.getSize())
                 .address(CharacterReference.encode(request.getAddress()))
                 .description(CharacterReference.encode(request.getDescription()))
-                .business_type(request.getBusiness_type())
+                .businessType(request.getBusiness_type())
                 .authorId("")
                 .fields(request.getFields())
-                .cover_photo("")
-                .tax_code(request.getTax_code())
+                .coverPhoto("")
+                .taxCode(request.getTax_code())
                 .website(request.getWebsite())
                 .build();
     }
@@ -34,17 +35,17 @@ public class CompanyMapper {
     public Company toCompany(Company company, String authorId) {
         return Company.builder()
                 .name(company.getName())
-                .logo_url(company.getLogo_url())
+                .logoUrl(company.getLogoUrl())
                 .email(company.getEmail())
                 .phone(company.getPhone())
                 .size(company.getSize())
                 .address(company.getAddress())
                 .description(company.getDescription())
-                .business_type(company.getBusiness_type())
+                .businessType(company.getBusinessType())
                 .authorId(authorId)
                 .fields(company.getFields())
-                .cover_photo(company.getCover_photo())
-                .tax_code(company.getTax_code())
+                .coverPhoto(company.getCoverPhoto())
+                .taxCode(company.getTaxCode())
                 .website(company.getWebsite())
                 .build();
     }
@@ -52,17 +53,18 @@ public class CompanyMapper {
     public CompanyResponse toCompanyResponse(Company company) {
         return CompanyResponse.builder()
                 .id(company.getId())
-                .logo_url(company.getLogo_url())
+                .logo_url(company.getLogoUrl())
                 .fields(company.getFields())
                 .address(CharacterReference.decode(company.getAddress()))
                 .phone(company.getPhone())
                 .size(company.getSize())
                 .email(company.getEmail())
-                .tax_code(company.getTax_code())
+                .tax_code(company.getTaxCode())
                 .website(company.getWebsite())
-                .cover_photo(company.getCover_photo())
-                .business_type(company.getBusiness_type())
+                .cover_photo(company.getCoverPhoto())
+                .business_type(company.getBusinessType())
                 .name(CharacterReference.decode(company.getName()))
+                .description(CharacterReference.decode(company.getDescription()))
                 .build();
     }
 

@@ -37,12 +37,11 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     private final ObjectMapper objectMapper;
     private final PathMatcher pathMatcher;
 
-    @Value("${app.api-prefix}")
-    private String apiPrefix;
-
     private String[] public_endpoints = {
-            apiPrefix + "/identity/auth/**",
-            "/eureka/**"
+            "/api/identity/auth/**",
+            "/eureka/**",
+            "/api/company/list",
+            "/api/company/id/**"
     };
 
     @Override

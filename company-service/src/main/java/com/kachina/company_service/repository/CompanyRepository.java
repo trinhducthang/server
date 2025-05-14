@@ -14,7 +14,8 @@ import java.util.Optional;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, String> {
 
-    Optional<Company> findByAuthor_id(String author_id);
+    @Query("SELECT c FROM Company c LEFT JOIN FETCH c.fields WHERE c.authorId = :authorId")
+    Optional<Company> findByAuthor_id(@Param("authorId") String authorId);
 
     Page<Company> findByNameContainingIgnoreCase(String search, Pageable pageable);
 

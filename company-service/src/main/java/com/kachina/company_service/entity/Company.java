@@ -33,18 +33,18 @@ public class Company {
     private String description;
 
     @Column(name = "company_type")
-    private Short business_type;
+    private Short businessType;
 
     @Column(name = "company_email")
     private String email;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "company_fields", joinColumns = @JoinColumn(name = "company_id"))
     @Column(name = "field_id")
     private List<Short> fields;
 
     @Column(name = "company_logo_url", columnDefinition = "TEXT")
-    private String logo_url;
+    private String logoUrl;
 
     @Column(name = "company_phone")
     private String phone;
@@ -53,13 +53,13 @@ public class Company {
     private String size;
 
     @Column(name = "company_tax_code")
-    private String tax_code;
+    private String taxCode;
 
     @Column(name = "company_website")
     private String website;
 
     @Column(name = "company_cover_photo")
-    private String cover_photo;
+    private String coverPhoto;
 
     @Column(name = "company_author_id")
     private String authorId;
@@ -67,20 +67,20 @@ public class Company {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "company_created_date")
-    private Date created_at;
+    private Date createdAt;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "company_updated_date")
-    private Date updated_at;
+    private Date updatedAt;
 
     @PrePersist
     protected void onCreate() {
-        this.created_at = new Date();
+        this.createdAt = new Date();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.updated_at = new Date();
+        this.updatedAt = new Date();
     }
 }
