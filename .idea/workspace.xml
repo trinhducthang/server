@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="second commit">
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/dto/request/CreateByIdRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kachina/api_gateway/filter/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/mapper/CompanyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/repository/CompanyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/kachina/company_service/service/CompanyService.java" afterDir="false" />
-    </list>
+    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="feat:Some company api" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +35,9 @@
     "accountId": "ea8876d5-7732-479d-b0fc-e077c8a895fd"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -125,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747154439571</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat:Some company api">
+      <option name="closed" value="true" />
+      <created>1747208075243</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747208075243</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +140,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -153,6 +154,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="feat:Some company api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:Some company api" />
   </component>
 </project>
