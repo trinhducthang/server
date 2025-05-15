@@ -41,7 +41,9 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             "/api/identity/auth/**",
             "/eureka/**",
             "/api/company/list",
-            "/api/company/id/**"
+            "/api/company/id/**",
+            "/api/job/with-company",
+            "/api/job/enable-jobs"
     };
 
     @Override

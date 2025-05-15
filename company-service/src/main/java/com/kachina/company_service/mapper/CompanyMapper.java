@@ -65,6 +65,7 @@ public class CompanyMapper {
                 .business_type(company.getBusinessType())
                 .name(CharacterReference.decode(company.getName()))
                 .description(CharacterReference.decode(company.getDescription()))
+                .authorId(company.getAuthorId())
                 .build();
     }
 

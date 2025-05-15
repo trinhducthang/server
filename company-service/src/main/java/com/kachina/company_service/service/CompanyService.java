@@ -116,7 +116,22 @@ public class CompanyService {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<ApiResponse<CompanyResponse>> getCompanyByAuthor() {
+    public ResponseEntity<ApiResponse<CompanyResponse>> getCompanyByAuthor(String authorId) {
+        Optional<Company> companyOpt = companyRepository.findByAuthor_id(authorId);
+        if(!companyOpt.isPresent()) {
+            throw new NotFoundException("Không tìm thấy thông tin công ty!");
+        }
+
+        ApiResponse<CompanyResponse> response = ApiResponse.<CompanyResponse>builder()
+                .message("Thông tin công ty")
+                .status(200)
+                .result(companyMapper.toCompanyResponse(companyOpt.get()))
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<ApiResponse<CompanyResponse>> getMyCompany() {
         String authorId = authHelper.getCurrentUserId();
         Optional<Company> companyOpt = companyRepository.findByAuthor_id(authorId);
         if(!companyOpt.isPresent()) {
@@ -164,6 +179,19 @@ public class CompanyService {
                 .message("ID List")
                 .status(HttpStatus.OK.value())
                 .result(ids)
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<ApiResponse<List<CompanyResponse>>> getCompaniesByAuthorIds(List<String> authorIds) {
+        List<Company> companies = companyRepository.findByAuthorIdIn(authorIds);
+
+        List<CompanyResponse> result = companies.stream().map(item -> companyMapper.toCompanyResponse(item)).collect(Collectors.toList());
+
+        ApiResponse<List<CompanyResponse>> response = ApiResponse.<List<CompanyResponse>>builder()
+                .status(200)
+                .result(result)
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);

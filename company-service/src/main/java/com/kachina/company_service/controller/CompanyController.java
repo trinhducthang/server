@@ -26,9 +26,14 @@ public class CompanyController {
         return companyService.getCompanyById(companyId);
     }
 
+    @GetMapping("/by-author/{id}")
+    public ResponseEntity<ApiResponse<CompanyResponse>> getCompanyByAuthor(@PathVariable("id") String authorId) {
+        return companyService.getCompanyByAuthor(authorId);
+    }
+
     @GetMapping("/my-company")
     public ResponseEntity<ApiResponse<CompanyResponse>> getCompany() {
-        return companyService.getCompanyByAuthor();
+        return companyService.getMyCompany();
     }
 
     @PostMapping("/create")
@@ -61,9 +66,14 @@ public class CompanyController {
         return companyService.getListCompany(search, pageable);
     }
 
-    @GetMapping("/ids/{field}")
-    public ResponseEntity<ApiResponse<List<String>>> getCompanyIdsByField(@PathVariable("field") Short field) {
-        return companyService.getCompanyIdsByField(field);
+//    @GetMapping("/by-field/{field}")
+//    public ResponseEntity<ApiResponse<List<CompanyResponse>>> getCompanyIdsByField(@PathVariable("field") Short field) {
+//        return companyService.getCompanyIdsByField(field);
+//    }
+
+    @PostMapping("/by-author-ids")
+    public ResponseEntity<ApiResponse<List<CompanyResponse>>> getCompaniesByAuthorIds(@RequestBody List<String> authorIds) {
+        return companyService.getCompaniesByAuthorIds(authorIds);
     }
 
 }

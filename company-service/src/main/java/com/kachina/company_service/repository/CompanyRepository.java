@@ -21,4 +21,6 @@ public interface CompanyRepository extends JpaRepository<Company, String> {
 
     @Query("SELECT c.id FROM Company c WHERE :field MEMBER OF c.fields")
     List<String> findCompanyIdsByField(@Param("field") Short field);
+
+    List<Company> findByAuthorIdIn(List<String> authorIds);
 }
