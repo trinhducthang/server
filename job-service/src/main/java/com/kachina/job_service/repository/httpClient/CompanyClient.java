@@ -21,10 +21,10 @@ public interface CompanyClient {
     @GetMapping("/by-author/{id}")
     ApiResponse<CompanyResponse> getCompanyByAuthor(@PathVariable("id") String authorId);
 
-    @GetMapping("/authorIds/{companyField}")
-    List<String> getAuthorIdsByCompanyFields(@PathVariable("companyField") Short companyField);
+    @GetMapping("/by-field/{field}")
+    ApiResponse<List<String>> getAuthorIdsByCompanyFields(@PathVariable("field") Short field);
 
-    @PostMapping("/by-authorIds")
+    @PostMapping("/by-author-ids")
     ApiResponse<List<CompanyResponse>> getCompaniesByAuthorIds(@RequestBody List<String> authorIds);
 
 }

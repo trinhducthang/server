@@ -67,10 +67,10 @@ public class CompanyController {
         return companyService.getListCompany(CharacterReference.encode(search), pageable);
     }
 
-//    @GetMapping("/by-field/{field}")
-//    public ResponseEntity<ApiResponse<List<CompanyResponse>>> getCompanyIdsByField(@PathVariable("field") Short field) {
-//        return companyService.getCompanyIdsByField(field);
-//    }
+    @GetMapping("/by-field/{field}")
+    public ResponseEntity<ApiResponse<List<String>>> getAuthorIdsByField(@PathVariable("field") Short field) {
+        return companyService.getAuthorIdsByField(field);
+    }
 
     @PostMapping("/by-author-ids")
     public ResponseEntity<ApiResponse<List<CompanyResponse>>> getCompaniesByAuthorIds(@RequestBody List<String> authorIds) {

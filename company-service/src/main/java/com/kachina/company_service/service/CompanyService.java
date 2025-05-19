@@ -172,8 +172,8 @@ public class CompanyService {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<ApiResponse<List<String>>> getCompanyIdsByField(Short field) {
-        List<String> ids = companyRepository.findCompanyIdsByField(field);
+    public ResponseEntity<ApiResponse<List<String>>> getAuthorIdsByField(Short field) {
+        List<String> ids = companyRepository.findAuthorIdsByField(field);
 
         ApiResponse<List<String>> response = ApiResponse.<List<String>>builder()
                 .message("ID List")

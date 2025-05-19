@@ -176,7 +176,7 @@ public class JobService {
     public ResponseEntity<ApiResponse<Map<String, Object>>> searchJob(JobFilterRequest filter, Pageable pageable) {
         List<String> authorIds = null;
         if(filter.getCompany_field() != null && filter.getCompany_field() != 0)
-            authorIds = companyClient.getAuthorIdsByCompanyFields(filter.getCompany_field());
+            authorIds = companyClient.getAuthorIdsByCompanyFields(filter.getCompany_field()).getResult();
 
         Specification<Job> spec = jobSpecification.getFilteredJobs(filter, authorIds);
         Page<Job> pageResult = jobRepository.findAll(spec, pageable);

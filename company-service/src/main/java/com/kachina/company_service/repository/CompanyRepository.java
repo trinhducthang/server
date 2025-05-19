@@ -19,8 +19,8 @@ public interface CompanyRepository extends JpaRepository<Company, String> {
 
     Page<Company> findByNameContainingIgnoreCase(String search, Pageable pageable);
 
-    @Query("SELECT c.id FROM Company c WHERE :field MEMBER OF c.fields")
-    List<String> findCompanyIdsByField(@Param("field") Short field);
+    @Query("SELECT c.authorId FROM Company c LEFT JOIN FETCH c.fields WHERE :field MEMBER OF c.fields")
+    List<String> findAuthorIdsByField(@Param("field") Short field);
 
     List<Company> findByAuthorIdIn(List<String> authorIds);
 }
