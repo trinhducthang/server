@@ -32,11 +32,15 @@ public class Job {
     private String location;
     @Column(name = "job_location_details")
     private String locationDetails;
+    @Column(name = "job_salary_details", columnDefinition = "TEXT")
+    private String salaryDetails;
+    @Column(name = "job_category")
+    private Short category;
     @Column(name = "job_salary")
-    private double salary;
+    private Short salary;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @Column(name = "company_created_date")
+    @Column(name = "job_deadline")
     private Date deadline;
     @Column(name = "job_exp")
     private Short exp;
@@ -56,7 +60,7 @@ public class Job {
     private Date createdAt;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @Column(name = "company_created_date")
+    @Column(name = "company_updated_date")
     private Date updatedAt;
     @Column(name = "job_author_id")
     private String authorId;

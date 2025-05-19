@@ -16,7 +16,9 @@ public class JobResponse {
     private String requirement;
     private List<String> location;
     private String location_details;
-    private double salary;
+    private String salary_details;
+    private Short category;
+    private Short salary;
     private Date deadline;
     private Short exp;
     private Short form_of_work;

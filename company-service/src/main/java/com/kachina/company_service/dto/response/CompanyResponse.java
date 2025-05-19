@@ -25,5 +25,5 @@ public class CompanyResponse {
     private String tax_code;
     private String website;
     private String cover_photo;
-    private String authorId;
+    private String author_id;
 }

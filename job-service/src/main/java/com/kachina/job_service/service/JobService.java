@@ -1,5 +1,6 @@
 package com.kachina.job_service.service;
 
+import com.kachina.job_service.dto.request.JobFilterRequest;
 import com.kachina.job_service.dto.request.JobRequest;
 import com.kachina.job_service.dto.response.ApiResponse;
 import com.kachina.job_service.dto.response.CompanyResponse;
@@ -11,15 +12,18 @@ import com.kachina.job_service.helper.AuthHelper;
 import com.kachina.job_service.mapper.JobMapper;
 import com.kachina.job_service.repository.JobRepository;
 import com.kachina.job_service.repository.httpClient.CompanyClient;
+import com.kachina.job_service.specification.JobSpecification;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +36,7 @@ public class JobService {
     private final AuthHelper authHelper;
     private final JobMapper jobMapper;
     private final CompanyClient companyClient;
+    private final JobSpecification jobSpecification;
 
     public ResponseEntity<ApiResponse<JobResponse>> addJob(JobRequest request) {
         String authorId = authHelper.getCurrentUserId();
@@ -153,7 +158,33 @@ public class JobService {
         Page<Job> pageResult = jobRepository.findByAuthorIdAndDeletedFalse(authorId, pageable);
 
         Map<String, Object> result = new HashMap<>();
-        result.put("jobs", pageResult.get().map(item -> jobMapper.toJobResponse(item, null)).collect(Collectors.toList()));
+        result.put("jobs", pageResult.getContent().stream().map(item -> jobMapper.toJobResponse(item, null)).collect(Collectors.toList()));
+        result.put("currentPage", pageResult.getNumber());
+        result.put("totalItems", pageResult.getTotalElements());
+        result.put("totalPages", pageResult.getTotalPages());
+        result.put("hasNext", pageResult.hasNext());
+        result.put("hasPrevious", pageResult.hasPrevious());
+
+        ApiResponse<Map<String, Object>> response = ApiResponse.<Map<String, Object>>builder()
+                .status(200)
+                .result(result)
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<ApiResponse<Map<String, Object>>> searchJob(JobFilterRequest filter, Pageable pageable) {
+        List<String> authorIds = null;
+        if(filter.getCompany_field() != null && filter.getCompany_field() != 0)
+            authorIds = companyClient.getAuthorIdsByCompanyFields(filter.getCompany_field());
+
+        Specification<Job> spec = jobSpecification.getFilteredJobs(filter, authorIds);
+        Page<Job> pageResult = jobRepository.findAll(spec, pageable);
+
+        List<JobResponse> jobs = jobMapper.toListJobResponse(pageResult, companyClient);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("jobs", jobs);
         result.put("currentPage", pageResult.getNumber());
         result.put("totalItems", pageResult.getTotalElements());
         result.put("totalPages", pageResult.getTotalPages());

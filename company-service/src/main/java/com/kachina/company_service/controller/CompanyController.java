@@ -6,6 +6,7 @@ import com.kachina.company_service.dto.response.ApiResponse;
 import com.kachina.company_service.dto.response.CompanyResponse;
 import com.kachina.company_service.service.CompanyService;
 import lombok.RequiredArgsConstructor;
+import net.htmlparser.jericho.CharacterReference;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -63,7 +64,7 @@ public class CompanyController {
         Sort sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(page, size, sort);
 
-        return companyService.getListCompany(search, pageable);
+        return companyService.getListCompany(CharacterReference.encode(search), pageable);
     }
 
 //    @GetMapping("/by-field/{field}")

@@ -67,8 +67,17 @@ public class JobController {
     }
 
     @PostMapping("enable-jobs")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getListJob(@RequestBody JobFilterRequest request) {
-        return null;
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getListJob(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "6") int size,
+            @RequestParam(defaultValue = "updatedAt") String sortBy,
+            @RequestParam(defaultValue = "desc") String direction,
+            @RequestBody JobFilterRequest request
+    ) {
+        Sort sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        return jobService.searchJob(request, pageable);
     }
 
 }

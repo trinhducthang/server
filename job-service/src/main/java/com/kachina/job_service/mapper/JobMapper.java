@@ -1,13 +1,20 @@
 package com.kachina.job_service.mapper;
 
 import com.kachina.job_service.dto.request.JobRequest;
+import com.kachina.job_service.dto.response.ApiResponse;
 import com.kachina.job_service.dto.response.CompanyResponse;
 import com.kachina.job_service.dto.response.JobResponse;
 import com.kachina.job_service.entity.Job;
+import com.kachina.job_service.repository.httpClient.CompanyClient;
 import net.htmlparser.jericho.CharacterReference;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Component
 public class JobMapper {
@@ -29,6 +36,8 @@ public class JobMapper {
                 .numberOfRecruits(request.getNumber_of_recruits())
                 .rank(request.getRank())
                 .authorId(authorId)
+                .category(request.getCategory())
+                .salaryDetails(CharacterReference.encode(request.getSalary_details()))
                 .build();
     }
 
@@ -47,6 +56,8 @@ public class JobMapper {
         job.setJobField(request.getJob_field());
         job.setNumberOfRecruits(request.getNumber_of_recruits());
         job.setRank(request.getRank());
+        job.setCategory(request.getCategory());
+        job.setSalaryDetails(CharacterReference.encode(request.getSalary_details()));
         return job;
     }
 
@@ -71,7 +82,30 @@ public class JobMapper {
                 .updated_at(job.getUpdatedAt())
                 .company(company)
                 .enable(job.getEnabled())
+                .category(job.getCategory())
+                .salary_details(CharacterReference.decode(job.getSalaryDetails()))
                 .build();
+    }
+
+    public List<JobResponse> toListJobResponse(Page<Job> page, CompanyClient companyClient) {
+        List<Job> jobs = page.getContent();
+
+        List<String> authorIds = jobs.stream()
+                .map(Job::getAuthorId)
+                .filter(Objects::nonNull)
+                .distinct()
+                .toList();
+
+        ApiResponse<List<CompanyResponse>> companyApiResponse = companyClient.getCompaniesByAuthorIds(authorIds);
+        List<CompanyResponse> companies = companyApiResponse.getResult();
+
+        Map<String, CompanyResponse> companyMap = companies.stream()
+                .collect(Collectors.toMap(CompanyResponse::getAuthor_id, c -> c));
+
+        return jobs.stream().map(job -> {
+            CompanyResponse company = companyMap.get(job.getAuthorId());
+            return toJobResponse(job, company);
+        }).toList();
     }
 
 }
