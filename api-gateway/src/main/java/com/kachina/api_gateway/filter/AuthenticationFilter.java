@@ -42,7 +42,7 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             "/eureka/**",
             "/api/company/list",
             "/api/company/id/**",
-            "/api/job/with-company",
+            "/api/job/with-company/**",
             "/api/job/enable-jobs"
     };
 

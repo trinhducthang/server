@@ -105,7 +105,7 @@ public class JobMapper {
         return jobs.stream().map(job -> {
             CompanyResponse company = companyMap.get(job.getAuthorId());
             return toJobResponse(job, company);
-        }).toList();
+        }).collect(Collectors.toList());
     }
 
 }

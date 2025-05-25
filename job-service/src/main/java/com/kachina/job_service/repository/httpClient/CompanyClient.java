@@ -13,7 +13,7 @@ import java.util.List;
 
 @FeignClient(
         name = "company-service",
-        path = "/api/company",
+        path = "/company",
         configuration = {AuthenticationRequestInterceptor.class}
 )
 public interface CompanyClient {

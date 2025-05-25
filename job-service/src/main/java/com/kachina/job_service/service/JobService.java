@@ -153,7 +153,7 @@ public class JobService {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getJobsByAuthor(Pageable pageable) {
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getJobsByAuthor(String search, Pageable pageable) {
         String authorId = authHelper.getCurrentUserId();
         Page<Job> pageResult = jobRepository.findByAuthorIdAndDeletedFalse(authorId, pageable);
 

@@ -55,7 +55,7 @@ public class JobController {
     public ResponseEntity<ApiResponse<Map<String, Object>>> getListJob(
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "6") int size,
-            @RequestParam(name = "search") String search,
+            @RequestParam(name = "search", defaultValue = "") String search,
             @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy,
             @RequestParam(name = "direction", defaultValue = "desc") String direction
     ) {
@@ -63,7 +63,7 @@ public class JobController {
         Sort sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(page, size, sort);
 
-        return jobService.getJobsByAuthor(pageable);
+        return jobService.getJobsByAuthor(search, pageable);
     }
 
     @PostMapping("enable-jobs")
