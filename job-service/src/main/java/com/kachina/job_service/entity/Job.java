@@ -56,11 +56,11 @@ public class Job {
     private Short rank;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @Column(name = "company_created_date")
+    @Column(name = "job_created_date")
     private Date createdAt;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @Column(name = "company_updated_date")
+    @Column(name = "job_updated_date")
     private Date updatedAt;
     @Column(name = "job_author_id")
     private String authorId;

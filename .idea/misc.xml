@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/company-service/pom.xml" />
         <option value="$PROJECT_DIR$/discovery-server/pom.xml" />
         <option value="$PROJECT_DIR$/identity-service/pom.xml" />
+        <option value="$PROJECT_DIR$/profile-service/pom.xml" />
       </list>
     </option>
   </component>

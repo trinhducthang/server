@@ -7,11 +7,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
-        <module name="job-service" />
         <module name="config-server" />
         <module name="discovery-server" />
-        <module name="company-service" />
         <module name="identity-service" />
+      </profile>
+      <profile name="Annotation profile for profile-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="job-service" />
+        <module name="profile-service" />
+        <module name="company-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -23,6 +32,7 @@
       <module name="discovery-server" options="-parameters" />
       <module name="identity-service" options="-parameters" />
       <module name="job-service" options="-parameters" />
+      <module name="profile-service" options="-parameters" />
     </option>
   </component>
 </project>
