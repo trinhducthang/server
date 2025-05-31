@@ -1,4 +1,4 @@
-package com.kachina.profile_service.dto.response;
+package com.kachina.recruitment_details_service.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

@@ -42,18 +42,23 @@ public class ProfileController {
         return profileService.delete(id);
     }
 
-    @GetMapping("/my-profile")
+    @GetMapping("/my-profiles")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getMyProfile(
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "6") int size,
             @RequestParam(name = "search", defaultValue = "") String search,
-            @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy,
+            @RequestParam(name = "sortBy", defaultValue = "updatedAt") String sortBy,
             @RequestParam(name = "direction", defaultValue = "desc") String direction
     ) {
         Sort sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(page, size, sort);
 
         return profileService.get(search, pageable);
+    }
+
+    @GetMapping("/my-all-profiles")
+    public ResponseEntity<ApiResponse<List<ProfileResponse>>> getMyAllProfile() {
+        return profileService.get();
     }
 
     @GetMapping("/list-by-ids")

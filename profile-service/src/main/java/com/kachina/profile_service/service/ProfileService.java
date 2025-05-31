@@ -1,5 +1,6 @@
 package com.kachina.profile_service.service;
 
+import com.kachina.profile_service.dto.projection.CandidateProfileProjection;
 import com.kachina.profile_service.dto.request.ApplicantRequest;
 import com.kachina.profile_service.dto.request.ProfileRequest;
 import com.kachina.profile_service.dto.response.ApiResponse;
@@ -113,6 +114,28 @@ public class ProfileService {
         return new ResponseEntity<>(res, HttpStatus.NO_CONTENT);
     }
 
+    public ResponseEntity<ApiResponse<List<ProfileResponse>>> get() {
+        String authorId = authHelper.getCurrentUserId();
+        List<CandidateProfileProjection> candidateProfileProjections = profileRepository.findByAuthorIdOrderByUpdatedAtDesc(authorId);
+
+        List<ProfileResponse> profileResponses = candidateProfileProjections
+                .stream()
+                .map(item -> ProfileResponse.builder()
+                        .id(item.getId())
+                        .name(CharacterReference.decode(item.getName()))
+                        .tags(CharacterReference.decode(item.getTags()))
+                        .updated_at(item.getUpdatedAt())
+                        .build())
+                .collect(Collectors.toList());
+
+        ApiResponse<List<ProfileResponse>> res = ApiResponse.<List<ProfileResponse>>builder()
+                .result(profileResponses)
+                .status(200)
+                .build();
+
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
     public ResponseEntity<ApiResponse<ProfileResponse>> get(String id) {
         Optional<CandidateProfile> profileOpt = profileRepository.findById(id);
         if(!profileOpt.isPresent() || profileOpt.get().getDeleted()) {
@@ -131,10 +154,18 @@ public class ProfileService {
 
     public ResponseEntity<ApiResponse<Map<String, Object>>> get(String search, Pageable pageable) {
         String authorId = authHelper.getCurrentUserId();
-        Page<CandidateProfile> pageResult = profileRepository.searchByAuthorIdAndKeyword(authorId, search, pageable);
+        Page<CandidateProfile> pageResult = profileRepository.searchByAuthorIdAndKeyword(authorId, CharacterReference.encode(search), pageable);
 
         Map<String, Object> result = new HashMap<>();
-        result.put("profiles", pageResult.getContent().stream().map(item -> profileMapper.toProfileResponse(item)).collect(Collectors.toList()));
+        result.put("profiles", pageResult.getContent()
+                .stream()
+                .map(item -> ProfileResponse.builder()
+                        .id(item.getId())
+                        .name(CharacterReference.decode(item.getName()))
+                        .tags(CharacterReference.decode(item.getTags()))
+                        .updated_at(item.getUpdatedAt())
+                        .build())
+                .collect(Collectors.toList()));
         result.put("currentPage", pageResult.getNumber());
         result.put("totalItems", pageResult.getTotalElements());
         result.put("totalPages", pageResult.getTotalPages());
@@ -150,8 +181,15 @@ public class ProfileService {
     }
 
     public ResponseEntity<ApiResponse<List<ProfileResponse>>> get(ApplicantRequest request) {
-        List<CandidateProfile> profiles = profileRepository.findByIdInAndDeletedFalse(request.getIds());
-        List<ProfileResponse> results = profiles.stream().map(item -> profileMapper.toProfileResponse(item)).collect(Collectors.toList());
+        List<CandidateProfileProjection> profiles = profileRepository.findByIdInAndDeletedFalse(request.getIds());
+        List<ProfileResponse> results = profiles.stream()
+            .map(item -> ProfileResponse.builder()
+                .id(item.getId())
+                .name(CharacterReference.decode(item.getName()))
+                .tags(CharacterReference.decode(item.getTags()))
+                .updated_at(item.getUpdatedAt())
+                .build())
+            .collect(Collectors.toList());
         ApiResponse<List<ProfileResponse>> response = ApiResponse.<List<ProfileResponse>>builder()
                 .status(200)
                 .result(results)

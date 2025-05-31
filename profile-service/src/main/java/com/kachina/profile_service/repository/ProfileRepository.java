@@ -1,5 +1,6 @@
 package com.kachina.profile_service.repository;
 
+import com.kachina.profile_service.dto.projection.CandidateProfileProjection;
 import com.kachina.profile_service.entity.CandidateProfile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,8 @@ public interface ProfileRepository extends JpaRepository<CandidateProfile, Strin
                                                       @Param("keyword") String keyword,
                                                       Pageable pageable);
 
-    List<CandidateProfile> findByIdInAndDeletedFalse(List<String> ids);
+    List<CandidateProfileProjection> findByAuthorIdOrderByUpdatedAtDesc(String authorId);
+
+    List<CandidateProfileProjection> findByIdInAndDeletedFalse(List<String> ids);
 
 }
