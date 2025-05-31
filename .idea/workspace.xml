@@ -4,35 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="fix:company api">
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/config/AuthenticationRequestInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/controller/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/request/ApplicantRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/request/ProfileRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ProfileResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/entity/CandidateProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/exception/AppException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/exception/RestControllerExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/helper/AuthHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/jwt/JwtEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/jwt/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/jwt/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/mapper/ProfileMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/ProfileRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/httpClient/RecruitmentDetailsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/service/ProfileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="feat:add some candidate profile api">
+      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/projection/CandidateProfileProjection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/entity/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/entity/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/ProfileServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/ProfileServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/ProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/ProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/service/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/service/ProfileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.api-gateway [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.4.5:run].executor": "Run",
-    "Maven.config-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.discovery-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.identity-service [org.apache.maven.plugins:maven-clean-plugin:3.3.2:clean].executor": "Run",
-    "Maven.identity-service [org.apache.maven.plugins:maven-install-plugin:3.1.3:install].executor": "Run",
-    "Maven.identity-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "Maven.job-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ide.FileNotInSourceRootChecker.no.check": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web/job-portal/server/profile-service/src/main/java/com/kachina/profile_service/jwt",
-    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.api-gateway [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.company-service [org.springframework.boot:spring-boot-maven-plugin:3.4.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.config-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-server [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.apache.maven.plugins:maven-clean-plugin:3.3.2:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.apache.maven.plugins:maven-install-plugin:3.1.3:install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.job-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ide.FileNotInSourceRootChecker.no.check&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web/job-portal/server/profile-service/src/main/java/com/kachina/profile_service/jwt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Web\job-portal\server\profile-service\src\main\java\com\kachina\profile_service\jwt" />
@@ -184,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747657392628</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat:add some candidate profile api">
+      <option name="closed" value="true" />
+      <created>1748532310639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748532310639</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +184,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -216,6 +202,7 @@
     <MESSAGE value="feat:add company api and job api for employer" />
     <MESSAGE value="feat:Search job api" />
     <MESSAGE value="fix:company api" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:company api" />
+    <MESSAGE value="feat:add some candidate profile api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:add some candidate profile api" />
   </component>
 </project>
