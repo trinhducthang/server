@@ -4,13 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="feat:add some candidate profile api">
-      <change afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/projection/CandidateProfileProjection.java" afterDir="false" />
+    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="initialize recruitment details service">
+      <change afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/repository/httpClient/RecruitmentDetailsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/controller/RecruitmentDetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/request/ApplicantRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/request/ApplyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/ApplicantResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/AppliedJobResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/CompanyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/JobResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/RecruitmentDetailsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/entity/RecruitmentDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/mapper/RecruitmentDetailsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/repository/RecruitmentDetailsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/repository/httpClient/JobClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/repository/httpClient/ProfileClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/service/RecruitmentDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/dto/response/ProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/ProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/ProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/controller/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/dto/response/JobResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/dto/response/JobResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/mapper/JobMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/mapper/JobMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/repository/JobRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/service/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/service/JobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/httpClient/RecruitmentDetailsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/repository/httpClient/RecruitmentDetailsClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/service/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile-service/src/main/java/com/kachina/profile_service/service/ProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/dto/response/ProfileResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,27 +95,27 @@
     &quot;com.intellij.ide.FileNotInSourceRootChecker.no.check&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Web/job-portal/server/profile-service/src/main/java/com/kachina/profile_service/jwt&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web/job-portal/server/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Web\job-portal\server\recruitment-details-service\src\main\java\com\kachina\recruitment_details_service" />
       <recent name="D:\Web\job-portal\server\profile-service\src\main\java\com\kachina\profile_service\jwt" />
       <recent name="D:\Web\job-portal\server\profile-service\src\main\java\com\kachina\profile_service\exception" />
       <recent name="D:\Web\job-portal\server\profile-service\src\main\java\com\kachina\profile_service\config" />
       <recent name="D:\Web\job-portal\server\job-service\src\main\java\com\kachina\job_service\exception" />
-      <recent name="D:\Web\job-portal\server\job-service\src\main\java\com\kachina\job_service\jwt" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Web\job-portal\server\company-service\src\main\java\com\kachina\company_service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kachina.job_service.repository.httpClient" />
+      <recent name="com.kachina.recruitment_details_service.dto.request" />
+      <recent name="com.kachina.recruitment_details_service.dto.response" />
       <recent name="com.kachina.profile_service.config" />
       <recent name="com.kachina.profile_service.helper" />
-      <recent name="com.kachina.profile_service.dto.response" />
-      <recent name="com.kachina.job_service.helper" />
-      <recent name="com.kachina.job_service.dto.response" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -170,7 +191,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748532310639</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat:add some candidate profile api">
+      <option name="closed" value="true" />
+      <created>1748680031411</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748680031412</updated>
+    </task>
+    <task id="LOCAL-00010" summary="initialize recruitment details service">
+      <option name="closed" value="true" />
+      <created>1748680092613</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748680092614</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +240,7 @@
     <MESSAGE value="feat:Search job api" />
     <MESSAGE value="fix:company api" />
     <MESSAGE value="feat:add some candidate profile api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:add some candidate profile api" />
+    <MESSAGE value="initialize recruitment details service" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialize recruitment details service" />
   </component>
 </project>

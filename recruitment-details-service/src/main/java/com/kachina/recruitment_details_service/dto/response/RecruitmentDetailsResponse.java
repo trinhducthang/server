@@ -9,8 +9,12 @@ import java.util.Date;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileResponse {
+public class RecruitmentDetailsResponse {
+
     private String id;
-    private String name;
-    private String tags;
+    private String feedback;
+    private Date application_date;
+    private Short status;
+    private boolean viewed;
+
 }

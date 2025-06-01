@@ -12,6 +12,7 @@ import com.kachina.job_service.helper.AuthHelper;
 import com.kachina.job_service.mapper.JobMapper;
 import com.kachina.job_service.repository.JobRepository;
 import com.kachina.job_service.repository.httpClient.CompanyClient;
+import com.kachina.job_service.repository.httpClient.RecruitmentDetailsClient;
 import com.kachina.job_service.specification.JobSpecification;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +38,7 @@ public class JobService {
     private final JobMapper jobMapper;
     private final CompanyClient companyClient;
     private final JobSpecification jobSpecification;
+    private final RecruitmentDetailsClient rdsClient;
 
     public ResponseEntity<ApiResponse<JobResponse>> addJob(JobRequest request) {
         String authorId = authHelper.getCurrentUserId();
@@ -142,6 +144,12 @@ public class JobService {
         Job job = jobOpt.get();
         job.setDeleted(true);
 
+        try {
+            rdsClient.deleteByJobId(job.getId());
+        } catch (Exception e) {
+            throw new AppException("Có lỗi trong quá trình xử lý!");
+        }
+
         jobRepository.save(job);
 
         ApiResponse<Boolean> response = ApiResponse.<Boolean>builder()
@@ -181,7 +189,7 @@ public class JobService {
         Specification<Job> spec = jobSpecification.getFilteredJobs(filter, authorIds);
         Page<Job> pageResult = jobRepository.findAll(spec, pageable);
 
-        List<JobResponse> jobs = jobMapper.toListJobResponse(pageResult, companyClient);
+        List<JobResponse> jobs = jobMapper.toListJobResponse(pageResult.getContent(), companyClient);
 
         Map<String, Object> result = new HashMap<>();
         result.put("jobs", jobs);
@@ -197,6 +205,16 @@ public class JobService {
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<ApiResponse<List<JobResponse>>> getJobsByIds(List<String> ids) {
+        List<Job> jobs = jobRepository.findByIdIn(ids);
+        List<JobResponse> jobResponses = jobMapper.toListJobResponse(jobs, companyClient);
+        ApiResponse<List<JobResponse>> res = ApiResponse.<List<JobResponse>>builder()
+                .status(200)
+                .result(jobResponses)
+                .build();
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
 }

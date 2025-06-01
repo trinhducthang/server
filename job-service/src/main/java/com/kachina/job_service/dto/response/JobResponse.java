@@ -31,4 +31,5 @@ public class JobResponse {
     private CompanyResponse company;
     private boolean enable;
     private int number_of_applicants;
+    private String author_id;
 }

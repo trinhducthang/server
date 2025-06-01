@@ -11,6 +11,7 @@ import com.kachina.profile_service.exception.NotFoundException;
 import com.kachina.profile_service.helper.AuthHelper;
 import com.kachina.profile_service.mapper.ProfileMapper;
 import com.kachina.profile_service.repository.ProfileRepository;
+import com.kachina.profile_service.repository.httpClient.RecruitmentDetailsClient;
 import lombok.RequiredArgsConstructor;
 import net.htmlparser.jericho.CharacterReference;
 import org.springframework.data.domain.Page;
@@ -32,6 +33,7 @@ public class ProfileService {
     private final ProfileMapper profileMapper;
     private final ProfileRepository profileRepository;
     private final AuthHelper authHelper;
+    private final RecruitmentDetailsClient rdsClient;
 
     public ResponseEntity<ApiResponse<ProfileResponse>> create(ProfileRequest request) {
         String authorId = authHelper.getCurrentUserId();
@@ -95,13 +97,17 @@ public class ProfileService {
         }
 
         if(!authorId.equals(profileOpt.get().getAuthorId())) {
-            throw new AppException("Có lỗi trong quá trình sử lý!");
+            throw new AppException("Có lỗi trong quá trình xử lý!");
         }
 
         CandidateProfile profile = profileOpt.get();
-        profile.setDeleted(false);
+        profile.setDeleted(true);
 
-        //TODO delete recruitment details
+        try {
+            rdsClient.deleteByProfileId(profile.getId());
+        } catch (Exception e) {
+            throw new AppException("Có lỗi trong quá trình xử lý!");
+        }
 
         profileRepository.save(profile);
 

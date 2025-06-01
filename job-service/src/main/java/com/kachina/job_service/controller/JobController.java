@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -78,6 +79,11 @@ public class JobController {
         Pageable pageable = PageRequest.of(page, size, sort);
 
         return jobService.searchJob(request, pageable);
+    }
+
+    @GetMapping("/by-ids")
+    public ResponseEntity<ApiResponse<List<JobResponse>>> getJobsByIds(@RequestBody List<String> jobIds) {
+        return jobService.getJobsByIds(jobIds);
     }
 
 }

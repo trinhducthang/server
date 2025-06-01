@@ -84,12 +84,11 @@ public class JobMapper {
                 .enable(job.getEnabled())
                 .category(job.getCategory())
                 .salary_details(CharacterReference.decode(job.getSalaryDetails()))
+                .author_id(job.getAuthorId())
                 .build();
     }
 
-    public List<JobResponse> toListJobResponse(Page<Job> page, CompanyClient companyClient) {
-        List<Job> jobs = page.getContent();
-
+    public List<JobResponse> toListJobResponse(List<Job> jobs, CompanyClient companyClient) {
         List<String> authorIds = jobs.stream()
                 .map(Job::getAuthorId)
                 .filter(Objects::nonNull)
