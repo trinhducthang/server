@@ -1,5 +1,6 @@
 package com.kachina.job_service.service;
 
+import com.kachina.job_service.dto.JobProjection;
 import com.kachina.job_service.dto.request.JobFilterRequest;
 import com.kachina.job_service.dto.request.JobRequest;
 import com.kachina.job_service.dto.response.ApiResponse;
@@ -16,6 +17,7 @@ import com.kachina.job_service.repository.httpClient.RecruitmentDetailsClient;
 import com.kachina.job_service.specification.JobSpecification;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
+import net.htmlparser.jericho.CharacterReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -217,4 +219,18 @@ public class JobService {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
+    public ResponseEntity<ApiResponse<List<JobResponse>>> getAllJobs() {
+        String authorId = authHelper.getCurrentUserId();
+        List<JobProjection> jobs = jobRepository.findByAuthorIdAndDeletedFalseOrderByUpdatedAt(authorId);
+        ApiResponse<List<JobResponse>> res = ApiResponse.<List<JobResponse>>builder()
+                .status(200)
+                .result(jobs.stream().map(item -> JobResponse
+                        .builder()
+                        .id(item.getId())
+                        .title(CharacterReference.decode(item.getTitle()))
+                        .build())
+                .collect(Collectors.toList()))
+                .build();
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
 }

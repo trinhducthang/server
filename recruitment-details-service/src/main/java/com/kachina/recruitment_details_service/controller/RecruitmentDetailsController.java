@@ -29,7 +29,7 @@ public class RecruitmentDetailsController {
     public ResponseEntity<ApiResponse<Map<String, Object>>> getAppliedJobs(
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "6") int size,
-            @RequestParam(name = "sortBy", defaultValue = "updatedAt") String sortBy,
+            @RequestParam(name = "sortBy", defaultValue = "applicationDate") String sortBy,
             @RequestParam(name = "direction", defaultValue = "desc") String direction
     ) {
         Sort sort = direction.equalsIgnoreCase("asc") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
@@ -77,8 +77,8 @@ public class RecruitmentDetailsController {
         return service.updateStatus(id, (short) 1, new FeedbackRequest());
     }
 
-    @PutMapping("/view/{id}")
-    public ResponseEntity<ApiResponse<Boolean>> view(@PathVariable("id") String id) {
+    @PutMapping("/view/{profileId}")
+    public ResponseEntity<ApiResponse<Boolean>> view(@PathVariable("profileId") String id) {
         return service.setViewed(id);
     }
 

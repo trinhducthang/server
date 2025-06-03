@@ -61,7 +61,7 @@ public class ProfileController {
         return profileService.get();
     }
 
-    @GetMapping("/list-by-ids")
+    @PostMapping("/list-by-ids")
     public ResponseEntity<ApiResponse<List<ProfileResponse>>> getByIds(@RequestBody ApplicantRequest request) {
         return profileService.get(request);
     }

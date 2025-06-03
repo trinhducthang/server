@@ -89,7 +89,7 @@ public class RecruitmentDetailsService {
         result.put("hasPrevious", pageResult.hasPrevious());
 
         ApiResponse<Map<String, Object>> res = ApiResponse.<Map<String, Object>>builder()
-                .result(null)
+                .result(result)
                 .status(HttpStatus.OK.value())
                 .build();
         return new ResponseEntity<>(res, HttpStatus.OK);
@@ -151,7 +151,7 @@ public class RecruitmentDetailsService {
         result.put("hasPrevious", pageResult.hasPrevious());
 
         ApiResponse<Map<String, Object>> res = ApiResponse.<Map<String, Object>>builder()
-                .result(null)
+                .result(result)
                 .status(HttpStatus.OK.value())
                 .build();
         return new ResponseEntity<>(res, HttpStatus.OK);
@@ -173,7 +173,7 @@ public class RecruitmentDetailsService {
     }
 
     public ResponseEntity<ApiResponse<Boolean>> setViewed(String id) {
-        Optional<RecruitmentDetails> rdsOpt = repository.findById(id);
+        Optional<RecruitmentDetails> rdsOpt = repository.findByProfileId(id);
         ApiResponse<Boolean> res = null;
         if(!rdsOpt.isPresent()) {
             res = ApiResponse.<Boolean>builder()
@@ -183,8 +183,10 @@ public class RecruitmentDetailsService {
                     .build();
         } else {
             RecruitmentDetails rds = rdsOpt.get();
-            rds.setViewed(true);
-            repository.save(rds);
+            if(!rds.isViewed()) {
+                rds.setViewed(true);
+                repository.save(rds);
+            }
             res = ApiResponse.<Boolean>builder()
                     .status(HttpStatus.OK.value())
                     .message("Cập nhật thông tin thành công!")

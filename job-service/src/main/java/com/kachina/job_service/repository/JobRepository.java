@@ -1,5 +1,6 @@
 package com.kachina.job_service.repository;
 
+import com.kachina.job_service.dto.JobProjection;
 import com.kachina.job_service.entity.Job;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,5 +16,7 @@ public interface JobRepository extends JpaRepository<Job, String>, JpaSpecificat
     Page<Job> findByAuthorIdAndDeletedFalse(String authorId, Pageable pageable);
 
     List<Job> findByIdIn(List<String> ids);
+
+    List<JobProjection> findByAuthorIdAndDeletedFalseOrderByUpdatedAt(String authorId);
 
 }

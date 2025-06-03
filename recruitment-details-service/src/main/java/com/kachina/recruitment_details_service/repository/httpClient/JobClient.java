@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 )
 public interface JobClient {
 
-    @GetMapping("/by-ids")
+    @PostMapping("/by-ids")
     ApiResponse<List<JobResponse>> getJobsByIds(@RequestBody List<String> jobIds);
 
     @GetMapping("/with-company/{id}")

@@ -30,7 +30,7 @@ public class Job {
     private String requirement;
     @Column(name = "job_location")
     private String location;
-    @Column(name = "job_location_details")
+    @Column(name = "job_location_details", columnDefinition = "TEXT")
     private String locationDetails;
     @Column(name = "job_salary_details", columnDefinition = "TEXT")
     private String salaryDetails;

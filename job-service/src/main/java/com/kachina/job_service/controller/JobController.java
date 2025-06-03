@@ -81,9 +81,14 @@ public class JobController {
         return jobService.searchJob(request, pageable);
     }
 
-    @GetMapping("/by-ids")
+    @PostMapping("/by-ids")
     public ResponseEntity<ApiResponse<List<JobResponse>>> getJobsByIds(@RequestBody List<String> jobIds) {
         return jobService.getJobsByIds(jobIds);
+    }
+
+    @GetMapping("/all-jobs")
+    public ResponseEntity<ApiResponse<List<JobResponse>>> getAllJobs() {
+        return jobService.getAllJobs();
     }
 
 }

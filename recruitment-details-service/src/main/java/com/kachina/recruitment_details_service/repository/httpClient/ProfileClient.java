@@ -6,6 +6,7 @@ import com.kachina.recruitment_details_service.dto.response.ApiResponse;
 import com.kachina.recruitment_details_service.dto.response.ProfileResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 )
 public interface ProfileClient {
 
-    @GetMapping("/list-by-ids")
+    @PostMapping("/list-by-ids")
     ApiResponse<List<ProfileResponse>> getByIds(@RequestBody ApplicantRequest request);
 
 }
