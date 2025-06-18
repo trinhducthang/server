@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="feat: recruitment details api, add some api to httpClient in job profile service, job service">
-      <change afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/dto/JobProjection.java" afterDir="false" />
+    <list default="true" id="821612b2-8cca-4f22-adb9-18d8aae3a05b" name="Changes" comment="fix: not return result and some http method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/dto/response/JobResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/dto/response/JobResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/repository/JobRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/service/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/job-service/src/main/java/com/kachina/job_service/service/JobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/controller/RecruitmentDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/controller/RecruitmentDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/service/RecruitmentDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-details-service/src/main/java/com/kachina/recruitment_details_service/service/RecruitmentDetailsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +63,8 @@
     &quot;Maven.identity-service [org.apache.maven.plugins:maven-install-plugin:3.1.3:install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.identity-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
     &quot;Maven.job-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.profile-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.recruitment-details-service [org.springframework.boot:spring-boot-maven-plugin:3.3.5:run].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -196,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748812009609</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: not return result and some http method">
+      <option name="closed" value="true" />
+      <created>1748912865041</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748912865041</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +234,7 @@
     <MESSAGE value="feat:add some candidate profile api" />
     <MESSAGE value="initialize recruitment details service" />
     <MESSAGE value="feat: recruitment details api, add some api to httpClient in job profile service, job service" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: recruitment details api, add some api to httpClient in job profile service, job service" />
+    <MESSAGE value="fix: not return result and some http method" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: not return result and some http method" />
   </component>
 </project>
